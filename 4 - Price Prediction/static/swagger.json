@@ -1,0 +1,54 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Price Prediction API",
+        "description": "API for predicting car prices based on brand type, age, and usage",
+        "version": "1.0.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/": {
+            "get": {
+                "summary": "Get list of available brand types and years",
+                "responses": {
+                    "200": {
+                        "description": "List of available brand types and years"
+                    }
+                }
+            }
+        },
+        "/predict": {
+            "post": {
+                "summary": "Predict car price",
+                "parameters": [
+                    {
+                        "name": "car_models",
+                        "in": "formData",
+                        "type": "string",
+                        "required": true,
+                        "description": "Brand type of the car"
+                    },
+                    {
+                        "name": "year",
+                        "in": "formData",
+                        "type": "string",
+                        "required": true,
+                        "description": "Year of the car"
+                    },
+                    {
+                        "name": "kilo_driven",
+                        "in": "formData",
+                        "type": "string",
+                        "required": true,
+                        "description": "Kilometers driven"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Predicted car price"
+                    }
+                }
+            }
+        }
+    }
+}
